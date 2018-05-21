@@ -1,0 +1,16 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0)">
+<circle cx="16" cy="16" r="15.5" transform="translate(16 48) scale(1 -1)" stroke="#F2F2F2"/>
+<circle cx="16" cy="16" r="16" transform="translate(16 48) scale(1 -1)" fill="#2F80ED"/>
+<circle cx="16" cy="16" r="15.5" transform="translate(16 48) scale(1 -1)" stroke="#F2F2F2"/>
+<path d="M0 48C17.6731 48 32 33.6731 32 16C32 10.1714 30.4417 4.70677 27.719 0H27.7128H0C8.83656 0 16 7.16344 16 16C16 18.8052 15.2781 21.4417 14.01 23.734C13.9156 23.9047 13.8181 24.0734 13.7177 24.2402L0 48Z" transform="translate(32 16)" fill="#F2994A"/>
+<path d="M0 16C0 33.6731 14.3269 48 32 48L45.7177 24.2402C42.9187 28.8898 37.8226 32 32 32C26.1774 32 21.0812 28.8898 18.2822 24.2401C18.1819 24.0734 18.0845 23.9047 17.9901 23.7341L4.28719 0H4.28103C1.55831 4.70677 0 10.1714 0 16Z" transform="translate(0 16)" fill="#27AE60"/>
+<path d="M11.7159 32C11.7159 23.1634 18.8793 16 27.7159 16H55.4287L55.4318 15.9947C49.8981 6.43279 39.5582 0 27.7159 0C15.8736 0 5.53371 6.43279 0 15.9947L0.00307417 16L13.706 39.7341C12.4378 37.4418 11.7159 34.8052 11.7159 32Z" transform="translate(4.28411)" fill="#EB5757"/>
+<circle cx="32" cy="32" r="31.5" transform="translate(0 64) scale(1 -1)" stroke="#F2F2F2"/>
+</g>
+<defs>
+<clipPath id="clip0">
+<rect width="64" height="64" fill="white" transform="translate(0 64) scale(1 -1)"/>
+</clipPath>
+</defs>
+</svg>
