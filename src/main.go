@@ -1,27 +1,27 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"net/http"
+	"os"
 )
 
 func main() {
-	addr, _ := getAddr()
-	fmt.Println("[" + addr + "]Serve has running...")
-	if err := initDirs(); err != nil {
-		fmt.Println("配置路径出错: ", err)
+	f, err := os.OpenFile("./log/main.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0644)
+	if err != nil {
+		panic(err)
 	}
-	initHandle()
-	if err := serveStart(); err != nil {
-		fmt.Println(err)
+	log.SetOutput(f)
+	if err = serveStart(); err != nil {
+		log.Panic(err)
 	}
 }
 
 func serveStart() error {
 	addr, err := getAddr()
 	if err != nil {
-		fmt.Println(err)
 		return err
 	}
+	initHandle()
 	return http.ListenAndServe(addr, nil)
 }

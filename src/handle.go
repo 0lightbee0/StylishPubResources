@@ -1,11 +1,23 @@
 package main
 
 import (
+	"log"
 	"net/http"
 	"path"
 )
 
 var handleMap = map[string]http.HandlerFunc{}
+
+var d = []string{}
+
+const (
+	_ uint = iota
+	ResType_Actions
+	ResType_Styles
+	ResType_Pages
+	ResType_Images
+	ResType_Fonts
+)
 
 func root(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path == "/" {
@@ -13,15 +25,26 @@ func root(w http.ResponseWriter, r *http.Request) {
 	} else {
 		filenameWithSuffix := path.Base(r.URL.Path)
 		fileSuffix := path.Ext(filenameWithSuffix)
-		switch fileSuffix {
-		case ".js":
-			http.ServeFile(w, r, "actions/"+filenameWithSuffix)
-		case ".css":
-			http.ServeFile(w, r, "styles/"+filenameWithSuffix)
-		case ".jpg", ".jpeg", ".gif", ".png", ".svg":
-			http.ServeFile(w, r, "images/"+filenameWithSuffix)
-		case ".eot", ".ttf", ".woff":
-			http.ServeFile(w, r, "fonts/"+filenameWithSuffix)
+		rt, err := getResType(fileSuffix)
+		if err != nil {
+			log.Println(err)
+		}
+		dir, err := getResourceDir()
+		if err != nil {
+			log.Println(err)
+		}
+		dir = path.Clean(dir)
+		switch rt {
+		case ResType_Actions:
+			http.ServeFile(w, r, path.Join(dir, "actions", filenameWithSuffix))
+		case ResType_Styles:
+			http.ServeFile(w, r, path.Join(dir, "styles", filenameWithSuffix))
+		case ResType_Images:
+			http.ServeFile(w, r, path.Join(dir, "images", filenameWithSuffix))
+		case ResType_Fonts:
+			http.ServeFile(w, r, path.Join(dir, "fonts", filenameWithSuffix))
+		case ResType_Pages:
+			http.ServeFile(w, r, path.Join(dir, "pages", filenameWithSuffix))
 		}
 	}
 }

@@ -1,0 +1,16 @@
+Actions:
+  js: true
+Styles:
+  css: true
+Images:
+  jpg: true
+  jpeg: true
+  gif: true
+  png: true
+  svg: true
+Fonts:
+  eot: true
+  ttf: true
+  woff: true
+Pages:
+  html: true
