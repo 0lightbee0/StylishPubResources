@@ -38,3 +38,10 @@ go build ./src
 
 ## log
 放在`StylishPubResource.exe`的同级文件夹`log`下的`main.log`文件
+
+## 在Stylish中使用图片
+```css
+body {
+    background-image: url(localhost:54321/Google-icons.svg);
+}
+```
